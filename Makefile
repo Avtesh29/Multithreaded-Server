@@ -2,7 +2,6 @@ EXECBIN  = httpserver
 SOURCES  = $(wildcard *.c)
 HEADERS  = $(wildcard *.h)
 OBJECTS  = $(SOURCES:%.c=%.o)
-LIBRARY  =  asgn4_helper_funcs.a
 FORMATS  = $(SOURCES:%.c=.format/%.c.fmt) $(HEADERS:%.h=.format/%.h.fmt)
 
 CC       = clang
@@ -13,7 +12,7 @@ CFLAGS   = -Wall -Wpedantic -Werror -Wextra -DDEBUG
 
 all: $(EXECBIN)
 
-$(EXECBIN): $(OBJECTS) $(LIBRARY) -lpthread
+$(EXECBIN): $(OBJECTS) -lpthread
 	$(CC) -o $@ $^
 
 %.o : %.c %.h
